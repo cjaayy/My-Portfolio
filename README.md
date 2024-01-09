@@ -28,7 +28,7 @@
   </header>
   <section id="home">
     <div class="left">
-      <span>Hello, I'm Christian Jay</span>
+      <span>Hello, I'm Christian Jay Mandani</span>
       <h3>WEB DEVELOPER</h3>
       <span class="des">I'm a IT Student</span>
       <button><a href="#skills">View My Skills</a></button>
