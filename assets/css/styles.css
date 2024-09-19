@@ -1226,3 +1226,17 @@ header {
     border: none;
   }
 }
+
+/* Center the image in Portfolio 3 */
+.portfolio-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.portfolio-3 .portfolio__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
