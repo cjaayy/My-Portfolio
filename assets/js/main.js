@@ -182,3 +182,271 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+/*==================== TYPING ANIMATION ====================*/
+function typeWriter(element, text, speed = 100) {
+  let i = 0;
+  element.innerHTML = '';
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      // Add typing-complete class when animation is done
+      element.classList.add('typing-complete');
+    }
+  }
+  type();
+}
+
+// Initialize typing animation when page loads
+window.addEventListener('load', function() {
+  const typingElement = document.getElementById('typing-text');
+  if (typingElement) {
+    const nameText = 'Christian Jay Mandani';
+    
+    setTimeout(() => {
+      typeWriter(typingElement, nameText, 80);
+    }, 500);
+  }
+});
+
+/*==================== SMOOTH REVEAL ANIMATIONS ====================*/
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.skills__container-box, .portfolio__content, .about__data');
+
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add('animate-reveal');
+    }
+  }
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+/*==================== ENHANCED QUALIFICATION ANIMATIONS ====================*/
+// Enhanced tab switching with smooth animations
+const qualificationTabs = document.querySelectorAll("[data-target]");
+const qualificationContents = document.querySelectorAll("[data-content]");
+
+qualificationTabs.forEach((tab) => {
+  tab.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    // Remove active classes with animation
+    qualificationContents.forEach((content) => {
+      if (content.classList.contains("qualification__active")) {
+        content.style.opacity = "0";
+        content.style.transform = "translateY(20px)";
+        
+        setTimeout(() => {
+          content.classList.remove("qualification__active");
+        }, 150);
+      }
+    });
+
+    qualificationTabs.forEach((t) => {
+      t.classList.remove("qualification__active");
+    });
+
+    // Add active classes with animation
+    const target = document.querySelector(tab.dataset.target);
+    tab.classList.add("qualification__active");
+    
+    setTimeout(() => {
+      target.classList.add("qualification__active");
+      target.style.opacity = "1";
+      target.style.transform = "translateY(0)";
+    }, 200);
+  });
+});
+
+// Animate qualification items on scroll
+function animateQualificationItems() {
+  const qualificationItems = document.querySelectorAll('.qualification__data');
+  
+  qualificationItems.forEach((item, index) => {
+    const itemTop = item.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (itemTop < windowHeight - 100) {
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, index * 200);
+    }
+  });
+}
+
+// Initialize qualification animations
+window.addEventListener('load', () => {
+  // Set initial styles for animation
+  const qualificationItems = document.querySelectorAll('.qualification__data');
+  qualificationItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = 'all 0.6s ease';
+  });
+  
+  // Trigger initial animation
+  setTimeout(() => {
+    animateQualificationItems();
+  }, 500);
+});
+
+// Add scroll listener for qualification animations
+window.addEventListener('scroll', animateQualificationItems);
+
+// Add interactive hover effects for qualification timeline
+document.addEventListener('DOMContentLoaded', () => {
+  const qualificationRounders = document.querySelectorAll('.qualification__rounder');
+  
+  qualificationRounders.forEach(rounder => {
+    rounder.addEventListener('mouseenter', () => {
+      rounder.style.transform = 'scale(1.3)';
+      rounder.style.transition = 'transform 0.3s ease';
+    });
+    
+    rounder.addEventListener('mouseleave', () => {
+      rounder.style.transform = 'scale(1)';
+    });
+  });
+  
+  // Add click effect to qualification badges
+  const qualificationBadges = document.querySelectorAll('.qualification__badge');
+  
+  qualificationBadges.forEach(badge => {
+    badge.addEventListener('click', () => {
+      badge.style.transform = 'scale(0.95)';
+      badge.style.transition = 'transform 0.1s ease';
+      
+      setTimeout(() => {
+        badge.style.transform = 'scale(1)';
+      }, 100);
+    });
+  });
+});
+
+// Add smooth scroll to certification links
+document.querySelectorAll('.qualification__subtitle a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+/*==================== ABOUT SECTION ANIMATIONS ====================*/
+
+// Counter Animation for Stats
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      start = target;
+      clearInterval(timer);
+    }
+    element.textContent = Math.floor(start);
+  }, 16);
+}
+
+// Initialize counter animations when section is visible
+const aboutSection = document.querySelector('#about');
+const statNumbers = document.querySelectorAll('.about__stat-number');
+let countersAnimated = false;
+
+function initCounters() {
+  if (!countersAnimated && aboutSection) {
+    const sectionTop = aboutSection.offsetTop;
+    const sectionHeight = aboutSection.offsetHeight;
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    
+    if (scrollTop > sectionTop - windowHeight + 200) {
+      countersAnimated = true;
+      
+      statNumbers.forEach(number => {
+        const target = parseInt(number.getAttribute('data-target'));
+        animateCounter(number, target);
+      });
+    }
+  }
+}
+
+// Enhanced scroll animations for about section elements
+function animateAboutElements() {
+  const aboutElements = document.querySelectorAll(
+    '.about__info-card, .about__timeline-item'
+  );
+  
+  aboutElements.forEach((element, index) => {
+    const elementTop = element.offsetTop;
+    const elementHeight = element.offsetHeight;
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    
+    if (scrollTop > elementTop - windowHeight + 100) {
+      setTimeout(() => {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+        element.style.transition = 'all 0.6s ease';
+      }, index * 150);
+    }
+  });
+}
+
+// Initialize about elements with initial hidden state
+document.addEventListener('DOMContentLoaded', () => {
+  const aboutElements = document.querySelectorAll(
+    '.about__info-card, .about__timeline-item'
+  );
+  
+  aboutElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+  });
+  
+  // Add hover effects for info cards
+  const infoCards = document.querySelectorAll('.about__info-card');
+  infoCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+  
+  // Add floating animation delay variance
+  const floatingItems = document.querySelectorAll('.about__floating-item');
+  floatingItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.5}s`;
+  });
+});
+
+// Add scroll listeners for about animations
+window.addEventListener('scroll', () => {
+  initCounters();
+  animateAboutElements();
+});
+
+// Initial check in case section is already visible
+window.addEventListener('load', () => {
+  initCounters();
+  animateAboutElements();
+});
