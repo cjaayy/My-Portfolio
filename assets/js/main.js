@@ -45,6 +45,16 @@ tabs.forEach((tab) => {
       tab.classList.remove("qualification__active");
     });
     tab.classList.add("qualification__active");
+
+    // Trigger animations for the newly active content
+    setTimeout(() => {
+      const fadeInItems = target.querySelectorAll('.fade-in-item');
+      fadeInItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.animation = `fadeInUp 0.8s ease ${index * 0.2}s forwards`;
+        }, 100);
+      });
+    }, 100);
   });
 });
 

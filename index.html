@@ -1973,7 +1973,12 @@
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="#" class="nav__logo noSelect">CJAY</a>
+        <a href="#" class="nav__logo noSelect">
+          <div class="logo-container">
+            <img src="images/1696427253476.jpg" alt="CJ Logo" class="logo-image">
+            <span class="logo-text">CJAY</span>
+          </div>
+        </a>
 
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list grid">
@@ -2283,11 +2288,11 @@
       </div>
     </section>
 
-     <!--==================== QUALIFICATOIN ====================-->
+     <!--==================== QUALIFICATIONS ====================-->
 
      <section class="qualification section fade-in" id="qualification">
       <h2 class="section__title">QUALIFICATIONS</h2>
-      <span class="section__subtitle">My Journey</span>
+      <span class="section__subtitle">My Professional & Academic Journey</span>
 
       <div class="qualification__container container">
         <div class="qualification__tabs">
@@ -2295,80 +2300,169 @@
             class="qualification__button button--flex qualification__active"
             data-target="#work"
           >
-            <i class="uil uil-briefcase-alt qualification__icon"> </i> Work
+            <i class="uil uil-briefcase-alt qualification__icon"></i>
+            <div class="qualification__button-content">
+              <span class="qualification__button-title">Work Experience</span>
+              <span class="qualification__button-subtitle">Professional Journey</span>
+            </div>
           </div>
 
           <div
             class="qualification__button button--flex"
             data-target="#education"
           >
-            <i class="uil uil-graduation-cap qualification__icon"> </i>
-            Education
+            <i class="uil uil-graduation-cap qualification__icon"></i>
+            <div class="qualification__button-content">
+              <span class="qualification__button-title">Education</span>
+              <span class="qualification__button-subtitle">Academic Background</span>
+            </div>
           </div>
         </div>
 
         <div class="qualification__sections">
-          <!--==================== QUALIFICATOIN CONTENT 1====================-->
+          <!--==================== WORK EXPERIENCE CONTENT ====================-->
           <div
             class="qualification__content qualification__active"
             data-content
             id="work"
           >
-             
+            <div class="qualification__timeline">
+              <div class="qualification__data fade-in-item">
+                <div class="qualification__card">
+                  <div class="qualification__card-header">
+                    <div class="qualification__company-logo">
+                      <i class="uil uil-building"></i>
+                    </div>
+                    <div class="qualification__card-info">
+                      <h3 class="qualification__title">IT Support</h3>
+                      <span class="qualification__badge">Work Immersion</span>
+                      <span class="qualification__subtitle">
+                        <a href="https://camayacoast.com/" target="_blank">Camaya Coast</a>
+                      </span>
+                      <div class="qualification__calender">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>June 2023</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qualification__card-description">
+                    <div class="qualification__skills-tags">
+                    </div>
+                  </div>
+                </div>
 
-             <!--==================== QUALIFICATION 1====================-->
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">IT Support</h3><span style="font-size: small;">Work Immersion</span><br>
-                <span class="qualification__subtitle "><a href="https://camayacoast.com/" target="blank">Camaya Coast</a></span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i> JUNE 2023
+                <div class="qualification__timeline-connector">
+                  <span class="qualification__rounder">
+                    <i class="uil uil-briefcase-alt"></i>
+                  </span>
+                  <span class="qualification__line"></span>
                 </div>
               </div>
 
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
+              <div class="qualification__data fade-in-item">
+                <div class="qualification__timeline-connector qualification__timeline-end">
+                  <span class="qualification__rounder qualification__rounder-end">
+                    <i class="uil uil-rocket"></i>
+                  </span>
+                </div>
+                <div class="qualification__card qualification__card-future">
+                  <div class="qualification__card-header">
+                    <div class="qualification__company-logo qualification__company-logo-future">
+                      <i class="uil uil-code-branch"></i>
+                    </div>
+                    <div class="qualification__card-info">
+                      <h3 class="qualification__title">Freelance Web and System Developer</h3>
+                      <span class="qualification__badge qualification__badge-current">Active</span>
+                      <span class="qualification__subtitle">Independent Development Services</span>
+                      <div class="qualification__calender">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>2024 - Present</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qualification__card-description">
+                    <div class="qualification__skills-tags">
+                      <span class="qualification__tag">Web Development</span>
+                      <span class="qualification__tag">System Development</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-
-           
-            <div class="qualification__data">
-              <div></div>
-              <div>
-                <span class="qualification__rounder"></span>
-                <!-- <span class="qualification__line"></span> -->
-              </div>
-             
             </div>
           </div>
 
-          <!--==================== QUALIFICATOIN CONTENT 2====================-->
+          <!--==================== EDUCATION CONTENT ====================-->
           <div class="qualification__content" data-content id="education">
+            <div class="qualification__timeline">
+              <div class="qualification__data fade-in-item">
+                <div class="qualification__card">
+                  <div class="qualification__card-header">
+                    <div class="qualification__company-logo">
+                      <i class="uil uil-graduation-cap"></i>
+                    </div>
+                    <div class="qualification__card-info">
+                      <h3 class="qualification__title">Bachelor of Science in Information Technology</h3>
+                      <span class="qualification__badge qualification__badge-current">Current</span>
+                      <span class="qualification__subtitle">
+                        <a href="https://www.facebook.com/PUPBataanOfficialPage/?paipv=0&eav=AfYwtHkqLgUseSpN5-pFvydf-eCA-CFfVi3qFdHKcstI_YVdbZ3PY70UZ7gP13_YSRQ&_rdr" target="_blank">
+                          Polytechnic University of the Philippines (PUP Bataan Campus)
+                        </a>
+                      </span>
+                      <div class="qualification__calender">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>2023 - Present</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qualification__card-description">
+                    <p>Pursuing comprehensive education in Information Technology, focusing on software development, database management, networking, and system analysis.</p>
+                    <div class="qualification__skills-tags">
+                      <span class="qualification__tag">Programming</span>
+                      <span class="qualification__tag">Web Development</span>
+                      <span class="qualification__tag">Database Design</span>
+                      <span class="qualification__tag">System Analysis</span>
+                    </div>
+                  </div>
+                </div>
 
-            <!--==================== QUALIFICATOIN 2.1====================-->
-           
-
-            <!--==================== QUALIFICATOIN 2.2====================-->
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">BS in Information Technology</h3>
-                <span class="qualification__subtitle "><a href="https://www.facebook.com/PUPBataanOfficialPage/?paipv=0&eav=AfYwtHkqLgUseSpN5-pFvydf-eCA-CFfVi3qFdHKcstI_YVdbZ3PY70UZ7gP13_YSRQ&_rdr" target="blank">Polytechnic University of the Philippines (PUP Bataan Campus)</a></span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i> 2023 - Present
+                <div class="qualification__timeline-connector">
+                  <span class="qualification__rounder">
+                    <i class="uil uil-graduation-cap"></i>
+                  </span>
+                  <span class="qualification__line"></span>
                 </div>
               </div>
 
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
+              <div class="qualification__data fade-in-item">
+                <div class="qualification__card">
+                  <div class="qualification__card-header">
+                    <div class="qualification__company-logo qualification__school-logo">
+                      <i class="uil uil-school"></i>
+                    </div>
+                    <div class="qualification__card-info">
+                      <h3 class="qualification__title">Senior High School</h3>
+                      <span class="qualification__badge">Completed</span>
+                      <span class="qualification__subtitle">
+                        MNHS - Camaya Campus
+                      </span>
+                      <div class="qualification__calender">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>2021 - 2023</span>
+                      </div>
+                      <div class="qualification__strand">
+                        <i class="uil uil-laptop-cloud"></i>
+                        <span>Information and Communication Technology (ICT)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="qualification__timeline-connector qualification__timeline-end">
+                  <span class="qualification__rounder qualification__rounder-end">
+                    <i class="uil uil-trophy"></i>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div>
-              <div align="center">
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>    
             </div>
           </div>
         </div>
