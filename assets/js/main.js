@@ -359,43 +359,39 @@ document.querySelectorAll('.qualification__subtitle a[href^="#"]').forEach(ancho
 
 /*==================== ABOUT SECTION ANIMATIONS ====================*/
 
-// Counter Animation for Stats
-function animateCounter(element, target, duration = 2000) {
+// Counter Animation for Home Stats
+function animateCounter(element, target, duration = 1800, suffix = '+') {
   let start = 0;
   const increment = target / (duration / 16);
-  
+  const isInt = Number.isInteger(target);
   const timer = setInterval(() => {
     start += increment;
     if (start >= target) {
       start = target;
       clearInterval(timer);
     }
-    element.textContent = Math.floor(start);
+    element.textContent = (isInt ? Math.floor(start) : start.toFixed(1)) + suffix;
   }, 16);
 }
 
-// Initialize counter animations when section is visible
-const aboutSection = document.querySelector('#about');
-const statNumbers = document.querySelectorAll('.about__stat-number');
-let countersAnimated = false;
-
-function initCounters() {
-  if (!countersAnimated && aboutSection) {
-    const sectionTop = aboutSection.offsetTop;
-    const sectionHeight = aboutSection.offsetHeight;
-    const scrollTop = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    
-    if (scrollTop > sectionTop - windowHeight + 200) {
-      countersAnimated = true;
-      
-      statNumbers.forEach(number => {
-        const target = parseInt(number.getAttribute('data-target'));
-        animateCounter(number, target);
-      });
-    }
+let homeStatsAnimated = false;
+function initHomeStatsCounters() {
+  if (homeStatsAnimated) return;
+  const statsSection = document.querySelector('.home__stats');
+  if (!statsSection) return;
+  const rect = statsSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  if (rect.top < windowHeight - 80) {
+    homeStatsAnimated = true;
+    document.querySelectorAll('.home__stat-number').forEach(el => {
+      const target = parseInt(el.getAttribute('data-target'));
+      animateCounter(el, target);
+    });
   }
 }
+
+window.addEventListener('scroll', initHomeStatsCounters);
+window.addEventListener('load', initHomeStatsCounters);
 
 // Enhanced scroll animations for about section elements
 function animateAboutElements() {

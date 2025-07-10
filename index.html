@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Libertinus Mono font CDN (move to head for proper loading) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/libertinus-mono@5.0.16/index.min.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio website of cjaayy."/>
@@ -1965,6 +1967,139 @@
 
     /* ...existing code... */
     </style>
+    <style>
+      /* Custom font style for Tech Stack label */
+      .about__stat-label {
+        font-family: 'Tektur', 'Fira Mono', 'Consolas', monospace;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        font-size: 1.13em;
+        color: var(--first-color, #e91f64);
+        text-shadow: 0 2px 8px rgba(31, 38, 135, 0.10);
+        background: rgba(255,255,255,0.12);
+        border-radius: 8px;
+        padding: 2px 12px;
+        margin-top: 8px;
+        display: inline-block;
+        transition: color 0.3s, background 0.3s;
+      }
+    </style>
+    <style>
+      /* Individual animations for MERN stack logos */
+      .about__stat-circle .techstack-animate[alt="MongoDB"] {
+        animation: mernLogoBounce 2.2s cubic-bezier(.77,0,.18,1) infinite alternate, mernLogoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both, mernMongoPulse 2.5s ease-in-out infinite alternate;
+      }
+      .about__stat-circle .techstack-animate[alt="Express.js"] {
+        animation: mernLogoBounce 2.2s cubic-bezier(.77,0,.18,1) infinite alternate, mernLogoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both, mernExpressGlow 2.2s ease-in-out infinite alternate;
+      }
+      .about__stat-circle .techstack-animate[alt="Node.js"] {
+        animation: mernLogoBounce 2.2s cubic-bezier(.77,0,.18,1) infinite alternate, mernLogoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both, mernNodeWobble 2.8s cubic-bezier(.77,0,.18,1) infinite alternate;
+      }
+      @keyframes mernMongoPulse {
+        0% { filter: drop-shadow(0 0 0px #4caf50); transform: scale(1); }
+        100% { filter: drop-shadow(0 0 16px #4caf50); transform: scale(1.13); }
+      }
+      @keyframes mernExpressGlow {
+        0% { filter: drop-shadow(0 0 0px #fff); }
+        100% { filter: drop-shadow(0 0 12px #fff) drop-shadow(0 0 24px #222); }
+      }
+      @keyframes mernNodeWobble {
+        0% { transform: rotate(0deg) scale(1); }
+        20% { transform: rotate(-8deg) scale(1.08); }
+        40% { transform: rotate(8deg) scale(1.04); }
+        60% { transform: rotate(-4deg) scale(1.1); }
+        80% { transform: rotate(4deg) scale(1.06); }
+        100% { transform: rotate(0deg) scale(1); }
+      }
+    </style>
+    <style>
+      /* React logo in MERN stack rotates */
+      .about__stat-circle .techstack-animate[alt="React"] {
+        animation: mernLogoBounce 2.2s cubic-bezier(.77,0,.18,1) infinite alternate, mernLogoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both, reactLogoSpin 3.5s linear infinite;
+      }
+      @keyframes reactLogoSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <style>
+      /* Animated MERN Tech Stack Logos */
+      .about__stat-circle .techstack-animate {
+        animation: mernLogoBounce 2.2s cubic-bezier(.77,0,.18,1) infinite alternate, mernLogoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both;
+        transition: filter 0.3s, transform 0.3s;
+        filter: drop-shadow(0 2px 8px rgba(31, 38, 135, 0.13));
+        border-radius: 8px;
+      }
+      .about__stat-circle .techstack-animate:hover {
+        animation-play-state: paused;
+        filter: drop-shadow(0 4px 24px var(--first-color, #e91f64));
+        transform: scale(1.12) rotate(-8deg);
+      }
+      @keyframes mernLogoBounce {
+        0% { transform: translateY(0) scale(1) rotate(0); }
+        20% { transform: translateY(-8px) scale(1.08) rotate(-4deg); }
+        40% { transform: translateY(0) scale(1.04) rotate(2deg); }
+        60% { transform: translateY(-4px) scale(1.1) rotate(-2deg); }
+        80% { transform: translateY(0) scale(1.06) rotate(2deg); }
+        100% { transform: translateY(0) scale(1) rotate(0); }
+      }
+      @keyframes mernLogoPop {
+        0% { opacity: 0; transform: scale(0.7); }
+        80% { opacity: 1; transform: scale(1.15); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+    </style>
+    <style>
+      /* Logo Animation */
+      .animated-logo {
+        animation: logoSpin 3.5s cubic-bezier(.77,0,.18,1) infinite alternate, logoPop 1.2s cubic-bezier(.77,0,.18,1) 0.2s both;
+        box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.13);
+        border-radius: 50%;
+        transition: box-shadow 0.3s, transform 0.3s;
+      }
+      .animated-logo:hover {
+        animation-play-state: paused;
+        box-shadow: 0 8px 32px 0 var(--first-color, #e91f64);
+        transform: scale(1.08) rotate(-8deg);
+      }
+      @keyframes logoSpin {
+        0% { transform: rotate(0deg) scale(1); }
+        80% { transform: rotate(360deg) scale(1.08); }
+        100% { transform: rotate(360deg) scale(1); }
+      }
+      @keyframes logoPop {
+        0% { opacity: 0; transform: scale(0.7); }
+        80% { opacity: 1; transform: scale(1.15); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .animated-logo-text {
+        display: inline-block;
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        letter-spacing: 2px;
+        animation: logoTextGlow 2.5s cubic-bezier(.77,0,.18,1) infinite alternate, logoTextPop 1.2s cubic-bezier(.77,0,.18,1) 0.3s both;
+        filter: drop-shadow(0 2px 8px rgba(31, 38, 135, 0.13));
+        transition: filter 0.3s, text-shadow 0.3s;
+      }
+      .animated-logo-text:hover {
+        animation-play-state: paused;
+        filter: drop-shadow(0 4px 24px var(--first-color, #e91f64));
+        text-shadow: 0 0 8px #fff, 0 0 24px var(--first-color, #e91f64);
+      }
+      @keyframes logoTextGlow {
+        0% { filter: drop-shadow(0 0 0px #e91f64); }
+        100% { filter: drop-shadow(0 0 12px #e91f64) drop-shadow(0 0 24px #282bb0); }
+      }
+      @keyframes logoTextPop {
+        0% { opacity: 0; transform: scale(0.7); }
+        80% { opacity: 1; transform: scale(1.15); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+    </style>
   </head>
 
   
@@ -1975,8 +2110,8 @@
       <nav class="nav container">
         <a href="#" class="nav__logo noSelect">
           <div class="logo-container">
-            <img src="images/1696427253476.jpg" alt="CJ Logo" class="logo-image">
-            <span class="logo-text">CJAY</span>
+            <img src="images/1696427253476.jpg" alt="CJ Logo" class="logo-image animated-logo">
+            <span class="logo-text animated-logo-text">CJAY</span>
           </div>
         </a>
 
@@ -2062,8 +2197,10 @@
               <a href="https://www.instagram.com/cjaaayy__" target="_blank" class="home__social-bar-icon instagram" title="Instagram">
                 <i class="uil uil-instagram"></i>
               </a>
-              <a href="https://twitter.com/cjaym__" target="_blank" class="home__social-bar-icon twitter" title="Twitter">
-                <i class="uil uil-twitter-alt"></i>
+              <a href="https://twitter.com/cjaym__" target="_blank" class="home__social-bar-icon twitter" title="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="1em" height="1em" fill="none" style="display:inline-block;vertical-align:middle;">
+                  <path fill="currentColor" d="M92.7 27.5H108L75.6 65.2l34.9 47.3H85.2l-24.2-32.7-27.7 32.7H12.1l34.7-41-33.2-44.6h25.2l21.1 28.5 25.8-28.5Zm-5.2 77.2h9.2L36.7 35.1h-9.9l60.7 69.6Z"/>
+                </svg>
               </a>
             </div>
     <style>
@@ -2119,7 +2256,10 @@
       .home__social-bar-icon.telegram:hover { color: #229ED9; box-shadow: 0 0 0 4px #229ED9; }
       .home__social-bar-icon.facebook:hover { color: #1877F3; box-shadow: 0 0 0 4px #1877F3; }
       .home__social-bar-icon.instagram:hover { color: #E1306C; box-shadow: 0 0 0 4px #E1306C; }
-      .home__social-bar-icon.twitter:hover { color: #1DA1F2; box-shadow: 0 0 0 4px #1DA1F2; }
+      .home__social-bar-icon.twitter:hover {
+        color: #000;
+        box-shadow: 0 0 0 4px #000;
+      }
       @media (max-width: 900px) {
         .home__social-bar {
           left: 8px;
@@ -2139,67 +2279,516 @@
     </style>
 
             <div class="home__data">
-              <div class="home__img">
-                <div class="home__img-wrapper">
-                  <img
-                    class="back"
-                    src="images/1696427253476.jpg"
-                    alt="Christian Jay Mandani"
-                  />
-                  <div class="home__img-overlay"></div>
+              <div class="home__info-vertical">
+                <div class="home__img">
+                  <div class="home__img-wrapper">
+                    <img
+                      class="back"
+                      src="images/1696427253476.jpg"
+                      alt="Christian Jay Mandani"
+                    />
+                    <div class="home__img-overlay"></div>
+                  </div>
+                </div>
+                <h1 class="home__title">
+                  <span class="home__greeting-animated">
+                    <span class="wave-hand">👋</span>
+                    <span class="greeting-text">Hi, I am</span>
+                  </span>
+                  <span class="home__name-animated">
+                    <span class="home__name-box">
+                      <span class="home__name-gradient">Christian Jay Mandani</span>
+                    </span>
+                  </span>
+                </h1>
+                <div class="home__subtitle-modern">
+                  <span class="subtitle-main subtitle-alt">IT Student</span>
+                  <span class="subtitle-divider"></span>
+                  <span class="subtitle-main subtitle-alt">Freelancer</span>
+                </div>
+                <div class="about__buttons">
+                  <a
+                    download=""
+                    href="Resume/My%20Resume.pdf"
+                    class="button button--flex home__cta-primary animated-cta pulse"
+                  >
+                    <span class="cta-glow"></span>
+                    <i class="uil uil-download-alt button__icon"></i>
+                    <span class="cta-text">Download Resume</span>
+                  </a>
+                  <a
+                    href="#contact"
+                    class="button button--flex home__cta-secondary animated-cta bounce"
+                  >
+                    <span class="cta-glow"></span>
+                    <i class="uil uil-message button__icon"></i>
+                    <span class="cta-text">Get in Touch</span>
+                  </a>
+                </div>
+                <div class="home__stats">
+                  <div class="home__stat glass-card">
+                    <span class="home__stat-number" data-target="5">0</span>
+                    <span class="home__stat-text">Projects</span>
+                  </div>
+                  <div class="home__stat glass-card">
+                    <span class="home__stat-number" data-target="10">0</span>
+                    <span class="home__stat-text">Skills</span>
+                  </div>
+                  <div class="home__stat glass-card">
+                    <span class="home__stat-number" data-target="2">0</span>
+                    <span class="home__stat-text">Years Learning</span>
+                  </div>
                 </div>
               </div>
-
-              <h1 class="home__title">
-                <span class="home__greeting">Hi, I am</span>
-                <span class="title-highlight typing-animation" id="typing-text"></span>
-              </h1>
-              <h3 class="home__subtitle">
-                <span class="home__subtitle-icon">💻</span>
-                IT Student | Freelancer
-                <span class="home__subtitle-icon">🚀</span>
-              </h3>
-              <p class="home__description">
-                A passionate and driven IT student with a love for web development and problem-solving. Always eager to learn new technologies and create innovative solutions.
-              </p>
+    <style>
+      /* Animated CTA Buttons */
+      .animated-cta {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+        transition: transform 0.18s cubic-bezier(.77,0,.18,1), box-shadow 0.18s;
+        z-index: 1;
+        min-width: 180px;
+        font-size: 1.08rem;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        margin: 0 10px 10px 0;
+        padding: 0;
+      }
+      .animated-cta .cta-glow {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(circle at 60% 40%, var(--first-color, #e91f64) 0%, rgba(255,255,255,0.12) 80%, transparent 100%);
+        opacity: 0.18;
+        z-index: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        border-radius: 16px;
+      }
+      .animated-cta .cta-text {
+        position: relative;
+        z-index: 2;
+        padding: 12px 32px 12px 18px;
+        display: inline-block;
+        font-family: 'Fira Mono', 'Consolas', monospace;
+      }
+      .animated-cta .button__icon {
+        position: relative;
+        z-index: 2;
+        margin-right: 8px;
+        font-size: 1.3em;
+        vertical-align: middle;
+        transition: transform 0.3s;
+      }
+      .animated-cta.pulse {
+        animation: ctaPulse 1.6s infinite cubic-bezier(.77,0,.18,1);
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        color: #fff;
+        border: none;
+      }
+      .animated-cta.pulse:hover {
+        transform: scale(1.07) translateY(-2px) rotate(-2deg);
+        box-shadow: 0 8px 32px 0 var(--first-color, #e91f64);
+      }
+      .animated-cta.bounce {
+        animation: ctaBounce 1.8s infinite cubic-bezier(.77,0,.18,1);
+        background: #fff;
+        color: var(--first-color, #e91f64);
+        border: 2.5px solid var(--first-color, #e91f64);
+      }
+      .animated-cta.bounce:hover {
+        transform: scale(1.07) translateY(-2px) rotate(2deg);
+        box-shadow: 0 8px 32px 0 var(--first-color, #e91f64);
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        color: #fff;
+      }
+      @keyframes ctaPulse {
+        0% { box-shadow: 0 0 0 0 var(--first-color, #e91f64); }
+        70% { box-shadow: 0 0 0 16px rgba(233,31,100,0); }
+        100% { box-shadow: 0 0 0 0 var(--first-color, #e91f64); }
+      }
+      @keyframes ctaBounce {
+        0%, 100% { transform: translateY(0); }
+        20% { transform: translateY(-6px); }
+        40% { transform: translateY(0); }
+        60% { transform: translateY(-3px); }
+        80% { transform: translateY(0); }
+      }
+      .animated-cta:active {
+        transform: scale(0.97);
+      }
+      @media (max-width: 600px) {
+        .animated-cta {
+          min-width: 120px;
+          font-size: 0.98rem;
+        }
+        .animated-cta .cta-text {
+          padding: 8px 16px 8px 10px;
+        }
+      }
+    </style>
+    <style>
+      /* Animated Name Styles */
+      .home__greeting-animated {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #222;
+        background: rgba(255,255,255,0.32);
+        border-radius: 12px;
+        padding: 6px 18px 6px 12px;
+        margin-right: 10px;
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.08);
+        position: relative;
+        animation: greetingFadeIn 1.2s cubic-bezier(.77,0,.18,1) 0.2s both;
+      }
+      /* Modern Subtitle Styles */
+      .home__subtitle-modern {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        margin: 24px 0 8px 0;
+        padding: 0;
+        font-size: 1.18rem;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        background: none;
+        position: relative;
+        animation: subtitleModernFadeIn 1.1s cubic-bezier(.77,0,.18,1) 0.7s both;
+      }
+      .subtitle-main {
+        color: var(--first-color, #e91f64);
+        background: rgba(255,255,255,0.18);
+        border-radius: 8px;
+        padding: 6px 18px;
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.08);
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        position: relative;
+        z-index: 1;
+        font-family: 'Fira Mono', 'Consolas', monospace;
+        border: 2px solid var(--first-color, #e91f64);
+      }
+      .subtitle-main.subtitle-alt {
+        color: #fff;
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        border: 2px solid #fff;
+        box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.13);
+      }
+      .subtitle-divider {
+        width: 32px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        border-radius: 2px;
+        margin: 0 5px;
+        animation: dividerGrow 1.2s cubic-bezier(.77,0,.18,1) 1.1s both;
+      }
+      @keyframes subtitleModernFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.85);
+          filter: blur(6px);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(-4px) scale(1.08);
+          filter: blur(0.5px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+      @keyframes dividerGrow {
+        0% { width: 0; opacity: 0; }
+        100% { width: 32px; opacity: 1; }
+      }
+      @media (max-width: 600px) {
+        .home__subtitle-modern {
+          font-size: 0.95rem;
+          gap: 8px;
+        }
+        .subtitle-main {
+          padding: 4px 10px;
+          border-radius: 6px;
+          font-size: 0.98em;
+        }
+        .subtitle-divider {
+          width: 18px;
+          height: 2px;
+        }
+      }
+      /* Animated Subtitle Styles */
+      .home__subtitle-animated {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(90deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+        border-radius: 14px;
+        padding: 7px 22px 7px 16px;
+        margin: 18px 0 8px 0;
+        box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.13);
+        position: relative;
+        overflow: hidden;
+        animation: subtitleFadeIn 1.2s cubic-bezier(.77,0,.18,1) 0.7s both;
+        letter-spacing: 1.2px;
+      }
+      .home__subtitle-icon {
+        font-size: 1.5em;
+        margin: 0 6px 0 0;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+        animation: subtitleIconPop 1.2s cubic-bezier(.77,0,.18,1) 1.1s both;
+        transition: transform 0.3s;
+      }
+      .home__subtitle-icon.rocket {
+        margin-left: 8px;
+        animation: rocketFly 2.2s cubic-bezier(.77,0,.18,1) 1.2s both;
+      }
+      .home__subtitle-animated:hover .home__subtitle-icon.rocket {
+        animation: rocketFlyLoop 1.2s cubic-bezier(.77,0,.18,1) infinite;
+      }
+      .home__subtitle-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .subtitle-separator {
+        margin: 0 8px;
+        color: #fff;
+        font-weight: 900;
+        font-size: 1.2em;
+        opacity: 0.7;
+        animation: separatorBlink 1.2s steps(1) infinite;
+      }
+      .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2.5px solid #fff;
+        animation: typing 1.2s steps(12, end) 1.2s 1 normal both, blink-caret 0.7s step-end infinite;
+        font-family: 'Fira Mono', 'Consolas', monospace;
+        font-size: 1.1em;
+        color: #fff;
+        letter-spacing: 1.2px;
+        min-width: 90px;
+      }
+      .typewriter-delay {
+        animation: typing 1.2s steps(12, end) 2.2s 1 normal both, blink-caret 0.7s step-end infinite;
+        min-width: 110px;
+      }
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+      @keyframes blink-caret {
+        0%, 100% { border-color: transparent; }
+        50% { border-color: #fff; }
+      }
+      @keyframes separatorBlink {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 0.2; }
+      }
+      @keyframes subtitleFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.85);
+          filter: blur(6px);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(-4px) scale(1.08);
+          filter: blur(0.5px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+      @keyframes subtitleIconPop {
+        0% { transform: scale(0.7) rotate(-18deg); opacity: 0; }
+        80% { transform: scale(1.15) rotate(8deg); opacity: 1; }
+        100% { transform: scale(1) rotate(0); opacity: 1; }
+      }
+      @keyframes rocketFly {
+        0% { transform: translateY(0) scale(0.7) rotate(-18deg); opacity: 0; }
+        60% { transform: translateY(-18px) scale(1.2) rotate(-8deg); opacity: 1; }
+        100% { transform: translateY(0) scale(1) rotate(0); opacity: 1; }
+      }
+      @keyframes rocketFlyLoop {
+        0% { transform: translateY(0) scale(1) rotate(0); }
+        30% { transform: translateY(-10px) scale(1.1) rotate(-8deg); }
+        60% { transform: translateY(-18px) scale(1.2) rotate(-8deg); }
+        100% { transform: translateY(0) scale(1) rotate(0); }
+      }
+      @media (max-width: 600px) {
+        .home__subtitle-animated {
+          font-size: 0.95rem;
+          padding: 4px 10px 4px 8px;
+          border-radius: 8px;
+        }
+        .home__subtitle-icon {
+          font-size: 1.1em;
+        }
+        .typewriter, .typewriter-delay {
+          font-size: 0.95em;
+          min-width: 60px;
+        }
+        .subtitle-separator {
+          font-size: 1em;
+        }
+      }
+      .wave-hand {
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 1.5em;
+        animation: waveHand 1.6s infinite;
+        transform-origin: 70% 70%;
+      }
+      @keyframes waveHand {
+        0% { transform: rotate(0deg); }
+        10% { transform: rotate(18deg); }
+        20% { transform: rotate(-8deg); }
+        30% { transform: rotate(18deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(12deg); }
+        60% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+      .greeting-text {
+        display: inline-block;
+        opacity: 0;
+        animation: greetingTextFadeIn 1.2s 0.4s forwards;
+      }
+      @keyframes greetingFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.85);
+          filter: blur(6px);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(-4px) scale(1.08);
+          filter: blur(0.5px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+      @keyframes greetingTextFadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      .home__name-animated {
+        display: inline-block;
+        margin-left: 10px;
+        animation: nameFadeIn 1.2s cubic-bezier(.77,0,.18,1) 0.5s both;
+      }
+      .home__name-box {
+        display: inline-block;
+        background: rgba(255,255,255,0.18);
+        border: 2.5px solid var(--first-color, #e91f64);
+        border-radius: 16px;
+        padding: 8px 24px;
+        box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+        backdrop-filter: blur(4px);
+        margin-left: 0;
+        margin-right: 0;
+        transition: box-shadow 0.3s, border-color 0.3s;
+      }
+      .home__name-box:hover {
+        box-shadow: 0 8px 32px 0 var(--first-color, #e91f64);
+        border-color: #fff;
+      }
+      @keyframes nameFadeIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.85) translateY(30px);
+          filter: blur(6px);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(1.08) translateY(-4px);
+          filter: blur(0.5px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          filter: blur(0);
+        }
+      }
+      .home__name-gradient {
+        font-family: 'Libertinus Mono', monospace !important;
+        font-weight: 900;
+        font-size: 2.7rem;
+        letter-spacing: 1.5px;
+        color: var(--first-color, #e91f64);
+        position: relative;
+        padding: 0 12px;
+        border-radius: 12px;
+        animation: singleColorCycle 12s linear infinite;
+        transition: color 0.5s;
+      }
+      @keyframes singleColorCycle {
+        0% { color: #e91f64; }
+        7% { color: #9c28b0; }
+        14% { color: #282bb0; }
+        21% { color: #58acdc; }
+        28% { color: #f1c84f; }
+        35% { color: #61c689; }
+        42% { color: #d2330b; }
+        49% { color: #922fe9; }
+        56% { color: #ff6b6b; }
+        63% { color: #4ecdc4; }
+        70% { color: #45b7d1; }
+        77% { color: #f39c12; }
+        84% { color: #e67e22; }
+        91% { color: #e74c3c; }
+        96% { color: #9b59b6; }
+        100% { color: #3498db; }
+      }
+      @media (max-width: 600px) {
+        .home__greeting-animated {
+          font-size: 1rem;
+          padding: 4px 8px 4px 6px;
+          border-radius: 8px;
+        }
+        .wave-hand {
+          font-size: 1.1em;
+        }
+        .home__name-gradient {
+          font-size: 1.5rem;
+          padding: 0 4px;
+        }
+        .home__name-box {
+          padding: 4px 8px;
+          border-radius: 8px;
+        }
+      }
+    </style>
+              <!-- Subtitle is now only below the name. Description removed as requested. -->
               <div class="about__buttons">
-                <a
-                  download=""
-                  href="Resume/My%20Resume.pdf"
-                  class="button button--flex home__cta-primary"
-                >
-                  <i class="uil uil-download-alt button__icon"></i>
-                  Download Resume
-                </a>
-                <a
-                  href="#contact"
-                  class="button button--flex home__cta-secondary"
-                >
-                  <i class="uil uil-message button__icon"></i>
-                  Get in Touch
-                </a>
-              </div>
-              <div class="home__stats">
-                <div class="home__stat">
-                  <span class="home__stat-number">5+</span>
-                  <span class="home__stat-text">Projects</span>
-                </div>
-                <div class="home__stat">
-                  <span class="home__stat-number">10+</span>
-                  <span class="home__stat-text">Skills</span>
-                </div>
-                <div class="home__stat">
-                  <span class="home__stat-number">2+</span>
-                  <span class="home__stat-text">Years Learning</span>
-                </div>
-              </div>
+              <!-- Buttons and stats moved above, see .home__info-vertical -->
             </div>
           </div>
           <div class="home__scroll">
-            <a href="#about" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scroll-name">Scroll Down</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
+            <a href="#about" class="home__scroll-button button--flex scroll-animate">
+              <span class="scroll-glass">
+                <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                <span class="home__scroll-name">Scroll Down</span>
+                <i class="uil uil-arrow-down home__scroll-arrow"></i>
+              </span>
             </a>
           </div>
         </div>
@@ -2234,17 +2823,12 @@
           <div class="about__stats">
             <div class="about__stat-item">
               <div class="about__stat-circle">
-                <span class="about__stat-number" data-target="3">0</span>
-                <span class="about__stat-plus">+</span>
+                <img class="techstack-animate" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" style="width:28px;height:28px;vertical-align:middle;" title="MongoDB" />
+                <img class="techstack-animate" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express.js" style="width:28px;height:28px;vertical-align:middle;filter:invert(1);margin-left:6px;" title="Express.js" />
+                <img class="techstack-animate" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" style="width:28px;height:28px;vertical-align:middle;margin-left:6px;" title="React" />
+                <img class="techstack-animate" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" style="width:28px;height:28px;vertical-align:middle;margin-left:6px;" title="Node.js" />
               </div>
-              <span class="about__stat-label">Years Learning</span>
-            </div>
-            <div class="about__stat-item">
-              <div class="about__stat-circle">
-                <span class="about__stat-number" data-target="15">0</span>
-                <span class="about__stat-plus">+</span>
-              </div>
-              <span class="about__stat-label">Projects</span>
+              <span class="about__stat-label">Tech Stack: <span class="about__tech-mern">MERN</span></span>
             </div>
           </div>
         </div>
@@ -2257,30 +2841,135 @@
               <p class="about__description">
                 <span class="about__highlight">Passionate IT Student</span> pursuing a BS in Information Technology with a drive for creating innovative digital solutions.
               </p>
-              
-              <div class="about__timeline">
-                <div class="about__timeline-item">
-                  <div class="about__timeline-marker"></div>
-                  <div class="about__timeline-content">
-                    <h4>The Beginning</h4>
-                    <p>My journey began in senior high school, mastering <span class="about__tech">HTML, CSS, and Bootstrap</span>.</p>
-                  </div>
+              <br>
+              <!-- Timeline: Only 3 lines/circles for 3 journey stages -->
+              <div class="about__timeline-row">
+                <div class="about__timeline-connector about__timeline-connector--vertical">
+                  <span class="about__line about__line--top"></span>
+                  <span class="about__rounder about__rounder--about"></span>
+                  <span class="about__line about__line--bottom"></span>
                 </div>
-                <div class="about__timeline-item">
-                  <div class="about__timeline-marker"></div>
-                  <div class="about__timeline-content">
-                    <h4>First Code</h4>
-                    <p>My first <span class="about__code">"Hello World!"</span> in Java ignited my passion for software development.</p>
-                  </div>
-                </div>
-                <div class="about__timeline-item">
-                  <div class="about__timeline-marker"></div>
-                  <div class="about__timeline-content">
-                    <h4>Current Mission</h4>
-                    <p>I thrive on solving complex challenges and continuously learning cutting-edge technologies.</p>
-                  </div>
+                <div class="about__timeline-content">
+                  <h4>The Beginning</h4>
+                  <p>My journey began in senior high school, mastering <span class="about__tech">HTML, CSS, and Bootstrap</span>.</p>
                 </div>
               </div>
+              <div class="about__timeline-row">
+                <div class="about__timeline-connector about__timeline-connector--vertical">
+                  <span class="about__line about__line--top"></span>
+                  <span class="about__rounder about__rounder--about"></span>
+                  <span class="about__line about__line--bottom"></span>
+                </div>
+                <div class="about__timeline-content">
+                  <h4>First Code</h4>
+                  <p>My first <span class="about__code hello-animate">"Hello World!"</span> in Java ignited my passion for software development.</p>
+                </div>
+              </div>
+              <div class="about__timeline-row">
+                <div class="about__timeline-connector about__timeline-connector--vertical">
+                  <span class="about__line about__line--top"></span>
+                  <span class="about__rounder about__rounder--about"></span>
+                  <span class="about__line about__line--bottom"></span>
+                </div>
+                <div class="about__timeline-content">
+                  <h4>Current Mission</h4>
+                  <p>I thrive on solving complex challenges and continuously learning cutting-edge technologies.</p>
+                </div>
+              </div>
+              <style>
+                .about__timeline-row {
+                  display: flex;
+                  align-items: flex-start;
+                  margin-bottom: 0;
+                  position: relative;
+                }
+                .about__timeline-connector--vertical {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: flex-start;
+                  min-width: 32px;
+                  margin-right: 18px;
+                  margin-left: 0;
+                  margin-bottom: 0;
+                  position: relative;
+                }
+                .about__timeline-content {
+                  flex: 1;
+                  margin-bottom: 32px;
+                }
+                .about__rounder {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  background: #fff;
+                  border: 4px solid var(--first-color, #e91f64);
+                  border-radius: 50%;
+                  margin: 0 0 0 0;
+                  z-index: 2;
+                  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                  position: relative;
+                }
+                .about__rounder--about {
+                  background: #fff;
+                  border: 4px solid var(--first-color, #e91f64);
+                }
+                .about__line--top,
+                .about__line--bottom {
+                  display: block;
+                  width: 4px;
+                  background: linear-gradient(180deg, var(--first-color, #e91f64) 0%, #282bb0 100%);
+                  border-radius: 2px;
+                  margin: 0 auto;
+                  position: relative;
+                  z-index: 1;
+                }
+                .about__line--top {
+                  height: 32px;
+                  min-height: 18px;
+                  margin-bottom: -2px;
+                }
+                .about__line--bottom {
+                  height: 32px;
+                  min-height: 18px;
+                  margin-top: -2px;
+                }
+                /* Hide top line for first row, bottom line for last row */
+                .about__timeline-row:first-child .about__line--top {
+                  display: none;
+                }
+                .about__timeline-row:last-child .about__line--bottom {
+                  display: none;
+                }
+                @media (max-width: 600px) {
+                  .about__timeline-connector--vertical { min-width: 16px; margin-right: 8px; }
+                  .about__rounder, .about__rounder--about { width: 12px; height: 12px; border-width: 2.5px; }
+                  .about__line--top, .about__line--bottom { width: 3px; min-height: 10px; height: 18px; }
+                }
+              </style>
+    <style>
+      /* Animated Hello World in About Timeline */
+      .hello-animate {
+        display: inline-block;
+        font-family: 'Fira Mono', 'Consolas', monospace;
+        font-weight: 700;
+        background: linear-gradient(90deg, #e91f64 0%, #282bb0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1.2px;
+        border-radius: 6px;
+        position: relative;
+        animation: helloBounce 1.2s cubic-bezier(.77,0,.18,1) infinite alternate;
+      }
+      @keyframes helloBounce {
+        0% { transform: translateY(0); }
+        30% { transform: translateY(-10px) scale(1.08); }
+        60% { transform: translateY(0) scale(1); }
+        100% { transform: translateY(0); }
+      }
+    </style>
             </div>
           </div>
 
@@ -2334,6 +3023,36 @@
           >
             <div class="qualification__timeline">
               <div class="qualification__data fade-in-item">
+                <div class="qualification__timeline-connector qualification__timeline-end">
+                  <span class="qualification__rounder qualification__rounder-end">
+                    <i class="uil uil-rocket"></i>
+                  </span>
+                </div>
+                <div class="qualification__card qualification__card-future">
+                  <div class="qualification__card-header">
+                    <div class="qualification__company-logo qualification__company-logo-future">
+                      <i class="uil uil-code-branch"></i>
+                    </div>
+                    <div class="qualification__card-info">
+                      <h3 class="qualification__title">Freelance Web and System Developer</h3>
+                      <span class="qualification__badge qualification__badge-current">Active</span>
+                      <span class="qualification__subtitle">Independent Development Services</span>
+                      <div class="qualification__calender">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>2024 - Present</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="qualification__card-description">
+                    <div class="qualification__skills-tags">
+                      <span class="qualification__tag">Web Development</span>
+                      <span class="qualification__tag">System Development</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="qualification__data fade-in-item">
                 <div class="qualification__card">
                   <div class="qualification__card-header">
                     <div class="qualification__company-logo">
@@ -2364,36 +3083,6 @@
                   <span class="qualification__line"></span>
                 </div>
               </div>
-
-              <div class="qualification__data fade-in-item">
-                <div class="qualification__timeline-connector qualification__timeline-end">
-                  <span class="qualification__rounder qualification__rounder-end">
-                    <i class="uil uil-rocket"></i>
-                  </span>
-                </div>
-                <div class="qualification__card qualification__card-future">
-                  <div class="qualification__card-header">
-                    <div class="qualification__company-logo qualification__company-logo-future">
-                      <i class="uil uil-code-branch"></i>
-                    </div>
-                    <div class="qualification__card-info">
-                      <h3 class="qualification__title">Freelance Web and System Developer</h3>
-                      <span class="qualification__badge qualification__badge-current">Active</span>
-                      <span class="qualification__subtitle">Independent Development Services</span>
-                      <div class="qualification__calender">
-                        <i class="uil uil-calendar-alt"></i>
-                        <span>2024 - Present</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="qualification__card-description">
-                    <div class="qualification__skills-tags">
-                      <span class="qualification__tag">Web Development</span>
-                      <span class="qualification__tag">System Development</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -2403,7 +3092,7 @@
               <div class="qualification__data fade-in-item">
                 <div class="qualification__card">
                   <div class="qualification__card-header">
-                    <div class="qualification__company-logo">
+                    <div class="qualification__company-logo qualification__school-logo">
                       <i class="uil uil-graduation-cap"></i>
                     </div>
                     <div class="qualification__card-info">
@@ -2420,15 +3109,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="qualification__card-description">
-                    <p>Pursuing comprehensive education in Information Technology, focusing on software development, database management, networking, and system analysis.</p>
-                    <div class="qualification__skills-tags">
-                      <span class="qualification__tag">Programming</span>
-                      <span class="qualification__tag">Web Development</span>
-                      <span class="qualification__tag">Database Design</span>
-                      <span class="qualification__tag">System Analysis</span>
-                    </div>
-                  </div>
+                  <!-- Description and tags removed as requested -->
                 </div>
 
                 <div class="qualification__timeline-connector">
@@ -2442,8 +3123,8 @@
               <div class="qualification__data fade-in-item">
                 <div class="qualification__card">
                   <div class="qualification__card-header">
-                    <div class="qualification__company-logo qualification__school-logo">
-                      <i class="uil uil-school"></i>
+                    <div class="qualification__company-logo">
+                      <i class="uil uil-graduation-cap"></i>
                     </div>
                     <div class="qualification__card-info">
                       <h3 class="qualification__title">Senior High School</h3>
@@ -3140,8 +3821,10 @@
 
     <!--==================== SCROLL TOP ====================-->
 
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="uil uil-arrow-up scrollup__icon"></i>
+    <a href="#" class="scrollup scroll-animate" id="scroll-up">
+      <span class="scroll-glass">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+      </span>
     </a>
 
     <!--==================== SWIPER JS ====================-->

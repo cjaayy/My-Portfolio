@@ -1,3 +1,76 @@
+/* ===== Modern Glassy Stats & Animated Scroll Button ===== */
+.glass-card {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  padding: 1.5rem 2.5rem;
+  margin: 0 1rem;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 16px 40px 0 rgba(31,38,135,0.22);
+}
+.home__stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--first-color);
+  display: block;
+  margin-bottom: 0.25rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.home__stat-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 600px) {
+  .glass-card { padding: 1rem 0.5rem; margin: 0 0.25rem; }
+  .home__stat-number { font-size: 1.5rem; }
+}
+
+/* Scroll Down Button Animation */
+.scroll-animate .scroll-glass {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.18);
+  border-radius: 2rem;
+  padding: 0.7rem 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(31,38,135,0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  position: relative;
+  animation: floatY 2.2s ease-in-out infinite;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.scroll-animate .scroll-glass:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  background: rgba(255,255,255,0.28);
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(18px); }
+}
+.home__scroll-mouse, .home__scroll-arrow {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  transition: color 0.3s;
+}
+.scroll-animate .home__scroll-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--first-color);
+  letter-spacing: 0.5px;
+}
 /*==================== GOOGLE FONTS ====================*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
@@ -817,12 +890,65 @@ header {
   color: var(--first-color);
 }
 
-.about__tech {
-  color: var(--first-color);
-  font-weight: 600;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 2px 6px;
-  border-radius: 4px;
+/* Animated tech stack styles */
+.about__tech, .about__tech-mern {
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #43cea2, #185a9d, #ff6a00);
+  background-size: 300% 300%;
+  padding: 2px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.15);
+  animation: tech-gradient-move 3s ease-in-out infinite, tech-bounce 1.2s infinite;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+/* Special animation and color for MERN stack */
+.about__tech-mern {
+  background: linear-gradient(90deg, #3fa037, #61dafb, #f7df1e, #333, #3fa037);
+  background-size: 400% 400%;
+  animation: mern-gradient-move 2.5s linear infinite, mern-bounce 1.2s infinite, mern-glow 2.5s ease-in-out infinite;
+  box-shadow: 0 2px 12px rgba(97, 218, 251, 0.18);
+  font-size: 1.12em;
+  letter-spacing: 1px;
+  filter: drop-shadow(0 0 8px #61dafb88);
+}
+
+@keyframes mern-bounce {
+  0%, 100% { transform: scale(1) rotate(-2deg); }
+  20% { transform: scale(1.12) rotate(2deg); }
+  40% { transform: scale(0.97) rotate(-2deg); }
+  60% { transform: scale(1.08) rotate(2deg); }
+  80% { transform: scale(0.98) rotate(-2deg); }
+}
+
+@keyframes mern-glow {
+  0%, 100% { box-shadow: 0 0 16px 2px #61dafb55, 0 0 0 #3fa03700; }
+  50% { box-shadow: 0 0 32px 8px #3fa03788, 0 0 24px 8px #f7df1e88; }
+}
+
+@keyframes mern-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes tech-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes tech-bounce {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.08); }
+  40% { transform: scale(0.97); }
+  60% { transform: scale(1.04); }
+  80% { transform: scale(0.98); }
 }
 
 .about__code {
