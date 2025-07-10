@@ -1,3 +1,30 @@
+// ==================== Animated Footer Reveal ====================
+document.addEventListener('DOMContentLoaded', function () {
+  const footer = document.querySelector('.footer');
+  if (!footer) return;
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        footer.classList.add('footer--visible');
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.2 }
+  );
+  observer.observe(footer);
+
+  // Animate footer links and socials
+  const links = footer.querySelectorAll('.footer__link, .footer__social');
+  links.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 400 + i * 120);
+  });
+});
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
