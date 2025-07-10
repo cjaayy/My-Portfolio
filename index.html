@@ -2045,56 +2045,98 @@
       <section class="home section" id="home">
         <div class="home__container container grid">
           <div class="home__content grid">
-            <div class="home__social">
-              <a
-                href="https://www.linkedin.com/in/cjaym/"
-                target="_blank"
-                class="home__social-icon"
-                title="LinkedIn"
-              >
+            <!-- Enhanced Social Bar -->
+            <div class="home__social-bar">
+              <a href="https://www.linkedin.com/in/cjaym/" target="_blank" class="home__social-bar-icon linkedin" title="LinkedIn">
                 <i class="uil uil-linkedin"></i>
               </a>
-              <a
-                href="https://github.com/cjaayy"
-                target="_blank"
-                class="home__social-icon"
-                title="GitHub"
-              >
+              <a href="https://github.com/cjaayy" target="_blank" class="home__social-bar-icon github" title="GitHub">
                 <i class="uil uil-github"></i>
               </a>
-              <a
-                href="https://t.me/sejay3"
-                target="_blank"
-                class="home__social-icon"
-                title="Telegram"
-              >
+              <a href="https://t.me/sejay3" target="_blank" class="home__social-bar-icon telegram" title="Telegram">
                 <i class="uil uil-telegram"></i>
               </a>
-              <a
-                href="https://web.facebook.com/christianjay.mandani.3?_rdc=1&_rdr"
-                target="_blank"
-                class="home__social-icon"
-                title="Facebook"
-              >
+              <a href="https://web.facebook.com/christianjay.mandani.3?_rdc=1&_rdr" target="_blank" class="home__social-bar-icon facebook" title="Facebook">
                 <i class="uil uil-facebook-f"></i>
               </a>
-              <a
-                href="https://www.instagram.com/cjaaayy__"
-                target="_blank"
-                class="home__social-icon"
-                title="Instagram"
-              >
+              <a href="https://www.instagram.com/cjaaayy__" target="_blank" class="home__social-bar-icon instagram" title="Instagram">
                 <i class="uil uil-instagram"></i>
               </a>
-              <a
-                href="https://twitter.com/cjaym__"
-                target="_blank"
-                class="home__social-icon"
-                title="Twitter"
-              >
+              <a href="https://twitter.com/cjaym__" target="_blank" class="home__social-bar-icon twitter" title="Twitter">
                 <i class="uil uil-twitter-alt"></i>
               </a>
             </div>
+    <style>
+      /* Enhanced Social Bar Styles */
+      .home__social-bar {
+        position: fixed;
+        top: 50%;
+        left: 32px;
+        transform: translateY(-50%) translateX(-80px);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        z-index: 1000;
+        background: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        backdrop-filter: blur(8px);
+        border-radius: 32px;
+        padding: 18px 10px;
+        border: 1.5px solid rgba(255,255,255,0.25);
+        animation: slideInSocialBar 1.1s cubic-bezier(.77,0,.18,1) 0.2s forwards;
+        opacity: 0;
+      }
+      @keyframes slideInSocialBar {
+        to {
+          transform: translateY(-50%) translateX(0);
+          opacity: 1;
+        }
+      }
+      .home__social-bar-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        font-size: 1.7rem;
+        color: #fff;
+        background: rgba(0,0,0,0.18);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        transition: all 0.25s cubic-bezier(.77,0,.18,1), box-shadow 0.18s;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .home__social-bar-icon:hover {
+        transform: scale(1.18) translateX(8px) rotate(-8deg);
+        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 0 0 4px var(--first-color, #e91f64);
+        color: var(--first-color, #e91f64);
+        background: rgba(255,255,255,0.32);
+      }
+      .home__social-bar-icon.linkedin:hover { color: #0A66C2; box-shadow: 0 0 0 4px #0A66C2; }
+      .home__social-bar-icon.github:hover { color: #333; box-shadow: 0 0 0 4px #333; }
+      .home__social-bar-icon.telegram:hover { color: #229ED9; box-shadow: 0 0 0 4px #229ED9; }
+      .home__social-bar-icon.facebook:hover { color: #1877F3; box-shadow: 0 0 0 4px #1877F3; }
+      .home__social-bar-icon.instagram:hover { color: #E1306C; box-shadow: 0 0 0 4px #E1306C; }
+      .home__social-bar-icon.twitter:hover { color: #1DA1F2; box-shadow: 0 0 0 4px #1DA1F2; }
+      @media (max-width: 900px) {
+        .home__social-bar {
+          left: 8px;
+          padding: 10px 4px;
+        }
+        .home__social-bar-icon {
+          width: 38px;
+          height: 38px;
+          font-size: 1.2rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .home__social-bar {
+          display: none;
+        }
+      }
+    </style>
 
             <div class="home__data">
               <div class="home__img">
