@@ -1,3 +1,92 @@
+/* === Animated Glassmorphic Header Redesign === */
+.header {
+  background: rgba(40, 43, 176, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  border-radius: 0 0 2.5rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: visible;
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 3px solid transparent;
+  animation: headerBorderAnim 3.5s linear infinite alternate;
+}
+@keyframes headerBorderAnim {
+  0% { border-bottom: 3px solid #b16cea; }
+  50% { border-bottom: 3px solid #58acdc; }
+  100% { border-bottom: 3px solid #e91f64; }
+}
+.animated-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2.2rem 0.7rem 2.2rem;
+  min-height: 70px;
+  position: relative;
+}
+.animated-logo-glass {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(120deg, #b16cea22 0%, #58acdc22 100%);
+  border-radius: 1.5rem;
+  padding: 0.3rem 1.1rem 0.3rem 0.7rem;
+  box-shadow: 0 2px 12px 0 #b16cea22;
+  border: 2px solid #b16cea44;
+  animation: logoGlassPulse 2.5s infinite alternate;
+}
+@keyframes logoGlassPulse {
+  0% { box-shadow: 0 2px 12px 0 #b16cea22; }
+  100% { box-shadow: 0 6px 24px 0 #58acdc44; }
+}
+.animated-logo-text-gradient {
+  font-family: 'Tektur', 'Poppins', Arial, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #b16cea 0%, #58acdc 50%, #e91f64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: logoTextGradientMove 4s linear infinite alternate;
+  letter-spacing: 2px;
+}
+@keyframes logoTextGradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.animated-nav-link {
+  position: relative;
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: 1.2px;
+  transition: color 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.animated-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #b16cea 0%, #58acdc 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(.77,0,.18,1);
+}
+.animated-nav-link:hover::after, .animated-nav-link.active-link::after {
+  transform: scaleX(1);
+}
+.animated-nav-link:hover, .animated-nav-link.active-link {
+  color: #b16cea;
+  background: linear-gradient(90deg, #b16cea11 0%, #58acdc11 100%);
+  border-radius: 8px;
+}
+.nav__logo .animated-logo-glass:hover {
+  box-shadow: 0 6px 24px 0 #b16cea44;
+  transform: scale(1.06) rotate(-2deg);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
 /* Make Swiper arrows visible in light mode for Projects and Certificates */
 body.light-theme .swiper-projects-icon {
   color: #b16cea !important;

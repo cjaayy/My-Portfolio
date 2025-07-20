@@ -1,3 +1,26 @@
+// === Header Logo and Nav Animation on Load ===
+window.addEventListener('DOMContentLoaded', function () {
+  const logo = document.querySelector('.animated-logo-glass');
+  if (logo) {
+    logo.style.opacity = '0';
+    logo.style.transform = 'translateY(-24px) scale(0.85)';
+    setTimeout(() => {
+      logo.style.transition = 'opacity 0.9s cubic-bezier(.77,0,.18,1), transform 0.9s cubic-bezier(.77,0,.18,1)';
+      logo.style.opacity = '1';
+      logo.style.transform = 'translateY(0) scale(1)';
+    }, 200);
+  }
+  const navLinks = document.querySelectorAll('.animated-nav-link');
+  navLinks.forEach((link, i) => {
+    link.style.opacity = '0';
+    link.style.transform = 'translateY(-18px)';
+    setTimeout(() => {
+      link.style.transition = 'opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1)';
+      link.style.opacity = '1';
+      link.style.transform = 'translateY(0)';
+    }, 400 + i * 90);
+  });
+});
 // ==================== Animated Footer Reveal ====================
 document.addEventListener('DOMContentLoaded', function () {
   const footer = document.querySelector('.footer');
